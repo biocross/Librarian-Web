@@ -1,8 +1,93 @@
 <head>
-  <title>iOS Build System</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>iOS Build System</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
-
-<body>
-  <div id="render-target"></div>
+<body class="bg-light">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+      <a class="navbar-brand" href="#">iOS BuildKeeper</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExample09">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+               <a class="nav-link" href="#">Builds <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="#">Jenkins</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <main role="main" class="container">
+      <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+         <div class="lh-100">
+            <h6 class="mb-0 text-white lh-100">Search Builds</h6>
+            <form class="form-inline my-2 my-md-0">
+               <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            </form>
+         </div>
+      </div>
+      <div class="my-3 p-3 bg-white rounded box-shadow">
+         <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+         <div class="media text-muted pt-3">
+            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+               <strong class="d-block text-gray-dark">@username</strong>
+               Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+            </p>
+         </div>
+         <div class="media text-muted pt-3">
+            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+               <strong class="d-block text-gray-dark">@username</strong>
+               Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+            </p>
+         </div>
+         <div class="media text-muted pt-3">
+            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+               <strong class="d-block text-gray-dark">@username</strong>
+               Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+            </p>
+         </div>
+         <small class="d-block text-right mt-3">
+         <a href="https://getbootstrap.com/docs/4.0/examples/offcanvas/#">All updates</a>
+         </small>
+      </div>
+      <div class="my-3 p-3 bg-white rounded box-shadow">
+         <h6 class="border-bottom border-gray pb-2 mb-0">Suggestions</h6>
+         <div class="media text-muted pt-3">
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+               <div class="d-flex justify-content-between align-items-center w-100">
+                  <strong class="text-gray-dark">Full Name</strong>
+                  <a href="https://getbootstrap.com/docs/4.0/examples/offcanvas/#">Follow</a>
+               </div>
+               <span class="d-block">@username</span>
+            </div>
+         </div>
+         <div class="media text-muted pt-3">
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+               <div class="d-flex justify-content-between align-items-center w-100">
+                  <strong class="text-gray-dark">Full Name</strong>
+                  <a href="https://getbootstrap.com/docs/4.0/examples/offcanvas/#">Follow</a>
+               </div>
+               <span class="d-block">@username</span>
+            </div>
+         </div>
+         <div class="media text-muted pt-3">
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+               <div class="d-flex justify-content-between align-items-center w-100">
+                  <strong class="text-gray-dark">Full Name</strong>
+                  <a href="https://getbootstrap.com/docs/4.0/examples/offcanvas/#">Follow</a>
+               </div>
+               <span class="d-block">@username</span>
+            </div>
+         </div>
+         <small class="d-block text-right mt-3">
+         <a href="https://getbootstrap.com/docs/4.0/examples/offcanvas/#">All suggestions</a>
+         </small>
+      </div>
+   </main>
 </body>
