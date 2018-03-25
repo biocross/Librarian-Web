@@ -39,6 +39,7 @@
 
 .build-version {
   margin-bottom: 0;
+    color: #2a7ae2;
 }
 
 .build-date {
@@ -47,18 +48,34 @@
   text-transform: uppercase;
 }
 
+.build {
+    padding: 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.post-list > li {
+    margin-bottom: 0;
+}
+
 .build-branch {
   font-size: 14px;
   color: gray;
 }
 
+
 </style>
 
 <div class="home">
 <h2 class="post-list-heading">Builds</h2>
-    <ul class="post-list"><li>
+    <ul class="post-list"><li class="build">
+        <h2 class="build-version">  6.4.4.3 </h2>
+        <p class="build-branch"> RELEASE NOTES <br> Groceries pushed </p>
+          <p class="build-branch"> From branch master </p>
+        <span class="build-date"> 1 week ago </span>
+      </li><li class="build">
         <h2 class="build-version">  6.4.4.2 </h2>
-        <p class="build-branch"> From branch master </p>
+        <p class="build-branch"> RELEASE NOTES <br> bug fixes </p>
+          <p class="build-branch"> From branch master </p>
         <span class="build-date"> 1 week ago </span>
       </li></ul></div>
       </div>

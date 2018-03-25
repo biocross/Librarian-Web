@@ -6,6 +6,7 @@ layout: default
 
 .build-version {
   margin-bottom: 0;
+    color: #2a7ae2;
 }
 
 .build-date {
@@ -14,10 +15,20 @@ layout: default
   text-transform: uppercase;
 }
 
+.build {
+    padding: 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.post-list > li {
+    margin-bottom: 0;
+}
+
 .build-branch {
   font-size: 14px;
   color: gray;
 }
+
 
 </style>
 
@@ -32,9 +43,10 @@ layout: default
     <h2 class="post-list-heading">{{ page.list_title | default: "Builds" }}</h2>
     <ul class="post-list">
       {%- for post in site.posts -%}
-      <li>
+      <li class="build">
         <h2 class="build-version">  {{ post.title }} </h2>
-        <p class="build-branch"> From branch {{ post.branch }} </p>
+        <p class="build-branch"> RELEASE NOTES <br> {{ post.desc }} </p>
+          <p class="build-branch"> From branch {{ post.branch }} </p>
         <span class="build-date"> {{ post.date | timeago }} </span>
       </li>
       {%- endfor -%}

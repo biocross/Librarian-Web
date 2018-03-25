@@ -5,6 +5,7 @@ date:   2018-03-18 16:13:59 +0530
 bundle: com.flipkart.fk
 branch: master
 categories: com.flipkart.fk
+desc: bug fixes
 list_title: Flipkart
 ---
 
