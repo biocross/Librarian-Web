@@ -5,3 +5,7 @@ xcshareddata/
 Manifest.lock
 jspm_packages/
 node_modules/
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
