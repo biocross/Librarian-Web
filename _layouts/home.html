@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<style>
+
+.build-version {
+  margin-bottom: 0;
+}
+
+.build-date {
+  font-size: 12px;
+  color: gray;
+  text-transform: uppercase;
+}
+
+.build-branch {
+  font-size: 14px;
+  color: gray;
+}
+
+</style>
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  {%- if site.posts.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "Builds" }}</h2>
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      <li>
+        <h2 class="build-version">  {{ post.title }} </h2>
+        <p class="build-branch"> From branch {{ post.branch }} </p>
+        <span class="build-date"> {{ post.date | timeago }} </span>
+      </li>
+      {%- endfor -%}
+    </ul>
+
+  {%- endif -%}
+
+</div>
