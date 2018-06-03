@@ -10,7 +10,7 @@ layout: default
     }
 
     .build-date {
-        font-size: 12px;
+        font-size: 10px;
         color: gray;
         text-transform: uppercase;
     }
@@ -55,8 +55,7 @@ layout: default
                 </div>
                 <div class="col-5">
                     <span class="float-right">
-                        <i class="fas fa-code-branch"></i>
-                        master
+                        <button type="button" class="btn btn-outline-primary"><i class="fas fa-cloud-download-alt"></i> Install</button>
                     </span>
                 </div>
             </div>
@@ -67,7 +66,14 @@ layout: default
                 <p>
             </div>
 
-            <span class="build-date"> <i class="far fa-clock"></i> {{ post.date | timeago }} </span>
+            <div class="row">
+                <div class="col-4 build-branch">
+                    <i class="fas fa-code-branch"></i> master
+                </div>
+                <div class="col-8 align-self-end">
+                    <span class="build-date float-right"> <i class="far fa-clock"></i> {{ post.date | timeago }} </span>
+                </div>
+            </div>
         </li>
         {%- endfor -%}
     </ul>
