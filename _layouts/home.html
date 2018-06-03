@@ -3,55 +3,75 @@ layout: default
 ---
 
 <style>
+    .build-version {
+        margin-bottom: 0;
+        color: #2a7ae2;
+        display: inline;
+    }
 
-.build-version {
-  margin-bottom: 0;
-    color: #2a7ae2;
-}
+    .build-date {
+        font-size: 12px;
+        color: gray;
+        text-transform: uppercase;
+    }
 
-.build-date {
-  font-size: 12px;
-  color: gray;
-  text-transform: uppercase;
-}
+    .build {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #dee2e6;
+    }
 
-.build {
-    padding: 0.5rem;
-    border-bottom: 1px solid #dee2e6;
-}
+    .post-list > li {
+        margin-bottom: 0;
+    }
 
-.post-list > li {
-    margin-bottom: 0;
-}
-
-.build-branch {
-  font-size: 14px;
-  color: gray;
-}
-
-
+    .build-branch {
+        font-size: 14px;
+        color: gray;
+    }
 </style>
 
 <div class="home">
-  {%- if page.title -%}
+    {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
+    {%- endif -%}
 
-  {{ content }}
+    {{ content }}
 
-  {%- if site.posts.size > 0 -%}
+
+    {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Builds" }}</h2>
     <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li class="build">
-        <h2 class="build-version">  {{ post.title }} </h2>
-        <p class="build-branch"> RELEASE NOTES <br> {{ post.desc }} </p>
-          <p class="build-branch"> From branch {{ post.branch }} </p>
-        <span class="build-date"> {{ post.date | timeago }} </span>
-      </li>
-      {%- endfor -%}
+        {%- for post in site.posts -%}
+        <li class="build">
+            <div class="row">
+                <div class="col-7">
+                    <span>
+                        <h2 class="build-version align-baseline">  {{ post.title }} </h2>
+                        <span class="align-text-bottom" style="font-size: 85%;">
+                            {{ post.buildno }}
+                        </span>
+
+                    </span>
+                </div>
+                <div class="col-5">
+                    <span class="float-right">
+                        <i class="fas fa-code-branch"></i>
+                        master
+                    </span>
+                </div>
+            </div>
+
+            <div class="build-branch"> RELEASE NOTES <br>
+                <p style="margin-top: 0.5rem;">
+                    {{ post.desc }}
+                <p>
+            </div>
+
+            <span class="build-date"> <i class="far fa-clock"></i> {{ post.date | timeago }} </span>
+        </li>
+        {%- endfor -%}
     </ul>
 
-  {%- endif -%}
+    {%- endif -%}
 
 </div>
