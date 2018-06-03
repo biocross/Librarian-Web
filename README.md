@@ -1,8 +1,3 @@
-# The BuildKeeper
+![Librarian Logo](../assets/Logo_wText.png)
 
-To start the server in Dev mode:
-
-```
-bundle install
-jekyll serve --livereload
-```
+Librarian is a local-first build manager for iOS apps.
