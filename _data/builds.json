@@ -1,20 +1,23 @@
 [
     {
-      "title": "7.0.0",
-      "buildNo": "7.0.0",
-      "desc": "My Awesome relese notes",
-      "branch": "master"
+      "version": "7.0.0",
+      "buildNumber": "7.0.0",
+      "notes": "My Awesome relese notes",
+      "branch": "master",
+      "date": "2018-06-07T14:47:05.565Z"
     },
     {
-      "title": "7.1.0",
-      "buildNo": "7.0.0",
-      "desc": "My Awesome relese notes",
-      "branch": "master"
+      "version": "7.1.0",
+      "buildNumber": "7.0.0",
+      "notes": "My Awesome relese notes",
+      "branch": "master",
+      "date": "2018-06-07T14:47:05.565Z"
     },
     {
-      "title": "7.2.0",
-      "buildNo": "7.0.0",
-      "desc": "My Awesome relese notes",
-      "branch": "master"
+      "version": "7.2.0",
+      "buildNumber": "7.0.0",
+      "notes": "My Awesome relese notes",
+      "branch": "master",
+      "date": "2018-06-07T14:47:05.565Z"
     }
 ]
