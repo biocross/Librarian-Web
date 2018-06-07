@@ -1,5 +1,5 @@
----
-layout: default
+--- 
+layout: default 
 ---
 
 <style>
@@ -20,7 +20,7 @@ layout: default
         border-top: 1px solid #dee2e6;
     }
 
-    .post-list > li {
+    .post-list>li {
         margin-bottom: 0;
     }
 
@@ -33,9 +33,7 @@ layout: default
 <div class="home">
     {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
-    {%- endif -%}
-
-    {%- if site.data.builds.size > 0 -%}
+    {%- endif -%} {%- if site.data.builds.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Builds" }}</h2>
     <ul class="post-list">
         {% for post in site.data.builds %}
@@ -43,29 +41,27 @@ layout: default
             <div class="row">
                 <div class="col-7">
                     <span>
-                        <h2 class="build-version align-baseline">  {{ post.title }} </h2>
+                        <h2 class="build-version align-baseline"> {{ post.title }} </h2>
                         <span class="align-text-bottom" style="font-size: 85%;">
                             {{ post.buildno }}
                         </span>
-
                     </span>
                 </div>
                 <div class="col-5">
                     <span class="float-right">
-                        <button type="button" class="btn btn-outline-primary"><i class="fas fa-cloud-download-alt"></i> Install</button>
+                        <button type="button" class="btn btn-outline-primary">
+                            <i class="fas fa-cloud-download-alt"></i> Install</button>
                     </span>
                 </div>
             </div>
-
-            <div class="build-branch"> RELEASE NOTES <br>
+            <div class="build-branch"> RELEASE NOTES
+                <br>
                 <p style="margin-top: 0.5rem;">
                     {{ post.desc }}
-                <p>
+                </p>
             </div>
-
         </li>
         {% endfor %}
     </ul>
     {%- endif -%}
-
 </div>
