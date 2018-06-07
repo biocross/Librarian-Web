@@ -35,13 +35,10 @@ layout: default
     <h1 class="page-heading">{{ page.title }}</h1>
     {%- endif -%}
 
-    {{ content }}
-
-
-    {%- if site.posts.size > 0 -%}
+    {%- if site.data.builds.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Builds" }}</h2>
     <ul class="post-list">
-        {%- for post in site.posts -%}
+        {% for post in site.data.builds %}
         <li class="build">
             <div class="row">
                 <div class="col-7">
@@ -66,18 +63,9 @@ layout: default
                 <p>
             </div>
 
-            <div class="row">
-                <div class="col-4 build-branch">
-                    <i class="fas fa-code-branch"></i> master
-                </div>
-                <div class="col-8 align-self-end">
-                    <span class="build-date float-right"> <i class="far fa-clock"></i> {{ post.date | timeago }} </span>
-                </div>
-            </div>
         </li>
-        {%- endfor -%}
+        {% endfor %}
     </ul>
-
     {%- endif -%}
 
 </div>
