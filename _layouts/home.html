@@ -33,18 +33,14 @@ layout: default
 <div class="home">
     {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
-    {%- endif -%} 
-
-    {%- if site.data.config.initialized != true -%}
-        <h2>Hello!</h2>
-        <br>
-        <h6>Welcome to Librarian's web interface! Your builds will be listed here to be downloaded. </h6>
-        <p> It's currently showing sample data, but you can start submitting your real builds to librarian using <code> librarian submit <pathToIPA> [release_notes]</code> command.</p>
-        <br>
-    {%- endif -%}
-    
-    {%- if site.data.builds.size > 0 -%}
-    {% assign sortedBuilds = site.data.builds | sort: 'date' | reverse %}
+    {%- endif -%} {%- if site.data.config.initialized != true -%}
+    <h2>Hello!</h2>
+    <br>
+    <h6>Welcome to Librarian's web interface! Your builds will be listed here to be downloaded. </h6>
+    <p> It's currently showing sample data, but you can start submitting your real builds to librarian using
+        <code> librarian submit <pathToIPA> [release_notes]</code> command.</p>
+    <br> {%- endif -%} {%- if site.data.builds.size > 0 -%} {% assign sortedBuilds = site.data.builds | sort: 'date' | reverse
+    %}
     <h2 class="post-list-heading">{{ page.list_title | default: "Builds" }}</h2>
     <ul class="post-list">
         {% for build in sortedBuilds limit: site.data.config.buildsToShow %}
@@ -60,12 +56,16 @@ layout: default
                 </div>
                 <div class="col-9 col-sm-8">
                     <span class="float-right">
-                        <button type="button" class="btn btn-outline-primary">
-                            <i class="fas fa-cloud-download-alt"></i> Install
-                        </button>
-                        <button type="button" class="btn btn-outline-warning">
-                            <i class="fas fa-cloud-download-alt"></i> Local
-                        </button>
+                        <a href=''>
+                            <button type="button" class="btn btn-outline-primary">
+                                <i class="fas fa-cloud-download-alt"></i> Install
+                            </button>
+                        </a>
+                        <a href=''>
+                            <button type="button" class="btn btn-outline-warning">
+                                <i class="fas fa-cloud-download-alt"></i> Local
+                            </button>
+                        </a>
                     </span>
                 </div>
             </div>
@@ -80,7 +80,9 @@ layout: default
                     <i class="fas fa-code-branch"></i> {{build.branch}}
                 </div>
                 <div class="col-8 align-self-end">
-                    <span class="build-date float-right"> <i class="far fa-clock"></i> <strong> {{ build.date | timeago }} </strong> ({{ build.date | date: "%I:%M %p on %a, %d %b %Y" }}) </span> 
+                    <span class="build-date float-right">
+                        <i class="far fa-clock"></i>
+                        <strong> {{ build.date | timeago }} </strong> ({{ build.date | date: "%I:%M %p on %a, %d %b %Y" }}) </span>
                 </div>
             </div>
         </li>
