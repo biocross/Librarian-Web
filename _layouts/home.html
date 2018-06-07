@@ -20,7 +20,7 @@ layout: default
         border-top: 1px solid #dee2e6;
     }
 
-    .post-list > li {
+    .post-list>li {
         margin-bottom: 0;
     }
 
@@ -33,51 +33,60 @@ layout: default
 <div class="home">
     {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
-    {%- endif -%}
-
-    {{ content }}
-
-
-    {%- if site.posts.size > 0 -%}
+    {%- endif -%} {%- if site.data.config.initialized != true -%}
+    <h2>Hello!</h2>
+    <br>
+    <h6>Welcome to Librarian's web interface! Your builds will be listed here to be downloaded. </h6>
+    <p> It's currently showing sample data, but you can start submitting your real builds to librarian using
+        <code> librarian submit <pathToIPA> [release_notes]</code> command.</p>
+    <br> {%- endif -%} {%- if site.data.builds.size > 0 -%} {% assign sortedBuilds = site.data.builds | sort: 'date' | reverse
+    %}
     <h2 class="post-list-heading">{{ page.list_title | default: "Builds" }}</h2>
     <ul class="post-list">
-        {%- for post in site.posts -%}
+        {% for build in sortedBuilds limit: site.data.config.buildsToShow %}
         <li class="build">
             <div class="row">
-                <div class="col-7">
+                <div class="col-3 col-sm-4">
                     <span>
-                        <h2 class="build-version align-baseline">  {{ post.title }} </h2>
+                        <h2 class="build-version align-baseline"> {{ build.version }} </h2>
                         <span class="align-text-bottom" style="font-size: 85%;">
-                            {{ post.buildno }}
+                            ({{ build.buildNumber }})
                         </span>
-
                     </span>
                 </div>
-                <div class="col-5">
+                <div class="col-9 col-sm-8">
                     <span class="float-right">
-                        <button type="button" class="btn btn-outline-primary"><i class="fas fa-cloud-download-alt"></i> Install</button>
+                        <a href='itms-services://?action=download-manifest&url={{site.data.config.webBaseURL}}/{{build.folderPath}}/manifest.plist'>
+                            <button type="button" class="btn btn-outline-primary">
+                                <i class="fas fa-cloud-download-alt"></i> Install
+                            </button>
+                        </a>
+                        <a href='itms-services://?action=download-manifest&url={{site.data.config.localBaseURL}}/{{build.folderPath}}/manifest.plist'>
+                            <button type="button" class="btn btn-outline-warning">
+                                <i class="fas fa-cloud-download-alt"></i> Local
+                            </button>
+                        </a>
                     </span>
                 </div>
             </div>
-
-            <div class="build-branch"> RELEASE NOTES <br>
+            <div class="build-branch"> RELEASE NOTES
+                <br>
                 <p style="margin-top: 0.5rem;">
-                    {{ post.desc }}
-                <p>
+                    {{ build.notes }}
+                </p>
             </div>
-
             <div class="row">
                 <div class="col-4 build-branch">
-                    <i class="fas fa-code-branch"></i> master
+                    <i class="fas fa-code-branch"></i> {{build.branch}}
                 </div>
                 <div class="col-8 align-self-end">
-                    <span class="build-date float-right"> <i class="far fa-clock"></i> {{ post.date | timeago }} </span>
+                    <span class="build-date float-right">
+                        <i class="far fa-clock"></i>
+                        <strong> {{ build.date | timeago }} </strong> ({{ build.date | date: "%I:%M %p on %a, %d %b %Y" }}) </span>
                 </div>
             </div>
         </li>
-        {%- endfor -%}
+        {% endfor %}
     </ul>
-
     {%- endif -%}
-
 </div>
