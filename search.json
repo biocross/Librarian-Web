@@ -1,0 +1,16 @@
+---
+---
+[
+  {% for build in site.data.builds %}
+    {
+      "version": "{{ build.version }}",
+      "buildNumber" : "{{ build.buildNumber }}",
+      "notes"     : "{{ build.notes }}",
+      "branch"     : "{{ build.branch }}",
+      "folderPath": "{{build.folderPath}}",
+      "platform"      : "{{ build.platform }}",
+      "public": {{ build.public }},
+      "date": "{{ build.date }}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

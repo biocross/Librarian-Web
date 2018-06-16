@@ -7,22 +7,22 @@ layout: default
         color: #2a7ae2;
         display: inline;
     }
-    
+
     .build-date {
         font-size: 10px;
         color: gray;
         text-transform: uppercase;
     }
-    
+
     .build {
         padding: 0.5rem 0;
         border-top: 1px solid #dee2e6;
     }
-    
+
     .post-list>li {
         margin-bottom: 0;
     }
-    
+
     .build-branch {
         font-size: 14px;
         color: gray;
@@ -31,30 +31,41 @@ layout: default
 
 <div class="home">
     {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1> 
-    {%- endif -%} 
-    
+    <h1 class="page-heading">{{ page.title }}</h1>
+    {%- endif -%}
+
     <div>
         {%- if site.data.config.initialized != true -%}
         <h2>Hello!</h2>
         <br>
         <h6>Welcome to Librarian's web interface! Your builds will be listed here to be downloaded. </h6>
         <p> It's currently showing sample data, but you can start submitting your real builds to librarian using the command:
-            <p><code> librarian submit &lt;pathToIPA&gt; [branch] [release_notes]</code> </p>
+            <p>
+                <code> librarian submit &lt;pathToIPA&gt; [branch] [release_notes]</code> </p>
             where:
             <p>
                 <ul>
-                    <li><code>pathToIPA</code> is the path to the IPA file</li>
-                    <li><code>branch</code> is the git branch the build is from <em>(Optional)</em></li>
-                    <li><code>release_notes</code> are the release notes for the build <em>(Optional)</em></li>
+                    <li>
+                        <code>pathToIPA</code> is the path to the IPA file</li>
+                    <li>
+                        <code>branch</code> is the git branch the build is from
+                        <em>(Optional)</em>
+                    </li>
+                    <li>
+                        <code>release_notes</code> are the release notes for the build
+                        <em>(Optional)</em>
+                    </li>
                 </ul>
             </p>
 
         </p>
-        <br> 
+        <br/>
     </div>
-    
-    {%- endif -%} 
+
+    {%- endif -%}
+
+    <input class="form-control form-control-lg" id="search-input" type="text" placeholder="Search Builds...">
+    <br/>
 
     {%- if site.data.builds.size > 0 -%} {% assign sortedBuilds = site.data.builds | sort: 'date' | reverse %}
     <h2 class="post-list-heading">{{ page.list_title | default: "Builds" }}</h2>
@@ -106,3 +117,70 @@ layout: default
     </ul>
     {%- endif -%}
 </div>
+<script>
+    const template = `
+    <li class="build">
+            <div class="row">
+                <div class="col-3 col-sm-4">
+                    <span>
+                        <h2 class="build-version align-baseline"> {version} </h2>
+                        <span class="align-text-bottom" style="font-size: 85%;">
+                            ({buildNumber})
+                        </span>
+                    </span>
+                </div>
+                <div class="col-9 col-sm-8">
+                    <span class="float-right">
+                        {%- if public -%}
+                        <a href='itms-services://?action=download-manifest&url={{site.data.config.webBaseURL}}/assets/b/{folderPath}/web/manifest.plist'>
+                            <button type="button" class="btn btn-outline-primary">
+                                <i class="fas fa-cloud-download-alt"></i> Install </button>
+                        </a>
+                        {%- endif -%}
+                        <a href='itms-services://?action=download-manifest&url={{site.data.config.webBaseURL}}/assets/b/{folderPath}/local/manifest.plist'>
+                            <button type="button" class="btn btn-outline-warning">
+                                <i class="fas fa-download"></i> Install </button>
+                        </a>
+                    </span>
+                </div>
+            </div>
+            <div class="build-branch"> RELEASE NOTES
+                <br>
+                <p style="margin-top: 0.5rem;">
+                    {notes}
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-4 build-branch">
+                    <i class="fas fa-code-branch"></i> {branch}
+                </div>
+                <div class="col-8 align-self-end">
+                    <span class="build-date float-right">
+                        <i class="far fa-clock"></i>
+                        {% capture build_date %}{date}{% endcapture %}
+                        <strong> {{ build_date }} </span>
+                </div>
+            </div>
+        </li>
+        `;
+
+    $(document).ready(function () {
+        const defaultResults = document.querySelector('.post-list').innerHTML;
+        $.getJSON("/search.json", function (data) {
+            SimpleJekyllSearch({
+                searchInput: document.querySelector('#search-input'),
+                resultsContainer: document.querySelector('.post-list'),
+                json: data,
+                searchResultTemplate: template
+            });
+        });
+        $('#search-input').on('change keyup paste', function() {
+            const text = $(this).val();
+            if(text == '') {
+                setTimeout(function(){
+                    $('.post-list').html(defaultResults);
+                }, 10);
+            }
+        });
+    });
+</script>
