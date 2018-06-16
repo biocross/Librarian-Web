@@ -5,6 +5,8 @@
       "notes": "My Awesome release notes",
       "branch": "master",
       "folderPath": "1528393956025",
+      "platform": "ios",
+      "public": true,
       "date": "2018-06-07T14:47:05.565Z"
     },
     {
@@ -13,6 +15,8 @@
       "notes": "My Awesome release notes",
       "branch": "master",
       "folderPath": "1528393956025",
+      "platform": "ios",
+      "public": false,
       "date": "2018-06-07T14:47:05.565Z"
     },
     {
@@ -21,6 +25,8 @@
       "notes": "My Awesome release notes",
       "branch": "master",
       "folderPath": "1528393956025",
+      "platform": "ios",
+      "public": true,
       "date": "2018-06-07T14:47:05.565Z"
     }
 ]
