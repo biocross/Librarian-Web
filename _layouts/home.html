@@ -29,12 +29,6 @@ layout: default
     }
 </style>
 
-<script>
-    if ((window.location.host.indexOf('ngrok') > -1) && (window.location.protocol != "https:")) {
-        window.location.protocol = "https";
-    }
-</script>
-
 <div class="home">
     {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1> 
