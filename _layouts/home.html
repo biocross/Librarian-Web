@@ -41,22 +41,24 @@ layout: default
     <h1 class="page-heading">{{ page.title }}</h1> 
     {%- endif -%} 
     
-    {%- if site.data.config.initialized != true -%}
-    <h2>Hello!</h2>
-    <br>
-    <h6>Welcome to Librarian's web interface! Your builds will be listed here to be downloaded. </h6>
-    <p> It's currently showing sample data, but you can start submitting your real builds to librarian using the command:
-        <p><code> librarian submit &lt;pathToIPA&gt; [branch] [release_notes]</code> </p>
-        where:
-        <p>
-            <ul>
-                <li><code>pathToIPA</code> is the path to the IPA file</li>
-                <li><code>branch</code> is the git branch the build is from <em>(Optional)</em></li>
-                <li><code>release_notes</code> are the release notes for the build <em>(Optional)</em></li>
-            </ul>
-        </p>
+    <div>
+        {%- if site.data.config.initialized != true -%}
+        <h2>Hello!</h2>
+        <br>
+        <h6>Welcome to Librarian's web interface! Your builds will be listed here to be downloaded. </h6>
+        <p> It's currently showing sample data, but you can start submitting your real builds to librarian using the command:
+            <p><code> librarian submit &lt;pathToIPA&gt; [branch] [release_notes]</code> </p>
+            where:
+            <p>
+                <ul>
+                    <li><code>pathToIPA</code> is the path to the IPA file</li>
+                    <li><code>branch</code> is the git branch the build is from <em>(Optional)</em></li>
+                    <li><code>release_notes</code> are the release notes for the build <em>(Optional)</em></li>
+                </ul>
+            </p>
 
-    </p>
+        </p>
+    </div>
     <br> 
     {%- endif -%} 
 
