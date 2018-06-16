@@ -4,15 +4,15 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+**Librarian** is an open-source project which allows mobile app development teams to locally hosted their builds and enable easy testing & sharing of apps.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+#### Features
+* **Locally Hosted**: Never worry about third party services disrupting your release schedule.
+* **Public URLs**: Accessible by your entire team through localhost tunneling.
+* **iOS & Android Support**: Cross platform support makes it a great choice for all teams.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+#### Contributing
+Please feel free to head over to our [GitHub repository](https://www.github.com/biocross/librarian) to suggest features and work on issues!
 
-
-[jekyll-organization]: https://github.com/jekyll
+---
+Developed by [@biocross](www.twitter.com/sids7) & designed by [@madebytushar](www.twitter.com/madebytushar)
