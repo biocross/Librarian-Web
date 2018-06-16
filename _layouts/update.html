@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<div class="home">
+    {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+    {%- endif -%}
+    <div>
+        {%- if site.data.config.update.available -%}
+        <br>
+        <div class="alert alert-primary" role="alert">
+            An Update to Librarian is available!
+        </div>
+        <br>
+        <h4>Upgrading is easy, and just takes less than a minute :)</h4>
+        {{content}}
+        {% else %}
+        <br>
+        <div class="alert alert-success" role="alert">
+                Librarian is currently up to date.
+        </div>
+        <br>
+    </div>
+    {%- endif -%}
+</div>
