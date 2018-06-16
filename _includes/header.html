@@ -3,17 +3,28 @@
         <a class="navbar-brand" href="/">
             <img src="../assets/logo.svg" height="35" class="d-inline-block align-top" alt="">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
+            {%- if site.data.config.update.available -%}
+            <i style="font-size: 15px; color: #e94a5a; margin-left: 2px" class="fas fa-circle"></i>
+            {%- endif -%}
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
+                {%- if site.data.config.update.available -%}
                 <li class="nav-item">
-                    <a class="nav-link" href="/guide/">Get Started</a>
+                    <a class="nav-link" style="color: #e94a5a" href="/update">
+                        <i style="font-size: 15px;" class="fas fa-circle"></i> Update Available!</a>
+                </li>
+                {%- endif -%}
+                <li class="nav-item">
+                    <a class="nav-link" href="/guide">Guide</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about/">About</a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
+
             </ul>
         </div>
     </nav>

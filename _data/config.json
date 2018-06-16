@@ -2,5 +2,9 @@
 	"webBaseURL": "ngrok.io",
 	"localBaseURL": "192.168.0.175",
 	"buildsToShow": 20,
-	"initialized": false
+	"initialized": false,
+	"update": {
+		"available": false,
+		"notes": ""
+	}
 }

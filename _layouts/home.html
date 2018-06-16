@@ -4,7 +4,6 @@ layout: default
 
 <style>
     .build-version {
-        margin-bottom: 0;
         color: #2a7ae2;
         display: inline;
     }
@@ -58,8 +57,9 @@ layout: default
             </p>
 
         </p>
+        <br> 
     </div>
-    <br> 
+    
     {%- endif -%} 
 
     {%- if site.data.builds.size > 0 -%} {% assign sortedBuilds = site.data.builds | sort: 'date' | reverse %}
@@ -78,13 +78,15 @@ layout: default
                 </div>
                 <div class="col-9 col-sm-8">
                     <span class="float-right">
+                        {%- if build.public -%}
                         <a href='itms-services://?action=download-manifest&url={{site.data.config.webBaseURL}}/assets/b/{{build.folderPath}}/web/manifest.plist'>
                             <button type="button" class="btn btn-outline-primary">
-                                <i class="fas fa-cloud-download-alt"></i>Install</button>
+                                <i class="fas fa-cloud-download-alt"></i> Install </button>
                         </a>
+                        {%- endif -%}
                         <a href='itms-services://?action=download-manifest&url={{site.data.config.webBaseURL}}/assets/b/{{build.folderPath}}/local/manifest.plist'>
                             <button type="button" class="btn btn-outline-warning">
-                                <i class="fas fa-cloud-download-alt"></i> Local</button>
+                                <i class="fas fa-cloud-download-alt"></i> Install </button>
                         </a>
                     </span>
                 </div>
