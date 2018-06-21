@@ -10,7 +10,7 @@ layout: default
         {%- if site.data.config.update.available -%}
         <br>
         <div class="alert alert-primary" role="alert">
-            An Update to Librarian is available!
+            {{ site.data.config.update.notes }}
         </div>
         <br>
         <h4>Upgrading is easy, and just takes less than a minute :)</h4>
