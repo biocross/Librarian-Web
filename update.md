@@ -4,9 +4,12 @@ title: Updating Librarian
 permalink: /update/
 ---
 
-Please follow the following steps to update Librarian to the latest version:
+ Updating is easy, and only takes a minute: 
 
-* Open **Terminal** and type the following commands:
-+ `[sudo] npm update -g librarian`
-+ `librarian update`
+#### Open **Terminal** and type the following commands:
+
+```console
+$ [sudo] npm update -g librarian
+$ librarian update
+```
 
