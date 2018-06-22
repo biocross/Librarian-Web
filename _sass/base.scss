@@ -462,15 +462,16 @@
  }
  
  .post-list-heading {
-   font-size: 28px;
+   margin-bottom: 0;
  }
  
  .post-list {
    margin-left: 0;
    list-style: none;
    >li {
-     margin-bottom: 30px;
+     padding-top: 0.5rem;
    }
+   padding-top: 0.5rem;
  }
  
  .post-meta {
@@ -481,6 +482,10 @@
  .post-link {
    display: block;
    font-size: 24px;
+ }
+
+ #search-input {
+   line-height: 1;
  }
  
  
@@ -722,10 +727,6 @@
  .build {
    padding: 0.5rem 0;
    border-top: 1px solid #dee2e6;
- }
- 
- .post-list>li {
-   margin-bottom: 0;
  }
  
  .build-branch {
