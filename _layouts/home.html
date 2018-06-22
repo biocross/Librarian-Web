@@ -14,7 +14,8 @@ layout: default
         <h6>Welcome to Librarian's web interface! Your builds will be listed here to be downloaded. </h6>
         <p> It's currently showing sample data, but you can start submitting your real builds to librarian using the command:
             <p>
-                <code> librarian submit &lt;pathToIPA&gt; [branch] [release_notes]</code> </p>
+                <code> librarian submit &lt;pathToIPA&gt; [branch] [release_notes]</code>
+            </p>
             where:
             <p>
                 <ul>
@@ -91,7 +92,8 @@ layout: default
     {%- endif -%}
 </div>
 <script>
-    const template = `
+    const template =
+        `
     <li class="build">
             <div class="row">
                 <div class="col-3 col-sm-4">
@@ -139,21 +141,48 @@ layout: default
 
     $(document).ready(function () {
         const defaultResults = document.querySelector('.post-list').innerHTML;
+        let search;
+        
         $.getJSON("/search.json", function (data) {
-            SimpleJekyllSearch({
+            search = SimpleJekyllSearch({
                 searchInput: document.querySelector('#search-input'),
                 resultsContainer: document.querySelector('.post-list'),
                 json: data,
                 searchResultTemplate: template
             });
+            console.log(search);
         });
-        $('#search-input').on('change keyup paste', function() {
+        $('#search-input').on('keyup', function (e) {
+            console.log(e);
             const text = $(this).val();
-            if(text == '') {
-                setTimeout(function(){
+            if (text == '') {
+                setTimeout(function () {
                     $('.post-list').html(defaultResults);
                 }, 10);
             }
         });
+
+        let getUrlParameter = function getUrlParameter(sParam) {
+            let sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+
+        setTimeout(function(){
+            let searchTerm = getUrlParameter('b');
+            if (searchTerm !== '') {
+                $('#search-input').val(searchTerm);
+                search.search(searchTerm);
+            }
+        }, 100);
     });
 </script>
