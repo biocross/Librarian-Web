@@ -68,6 +68,7 @@ layout: default
                         </span>
                     </span>
                 </div>
+                {%- if build.platform == "ios" -%} 
                 <div class="col-9 col-sm-8">
                     <span class="float-right">
                         {%- if build.public -%}
@@ -82,6 +83,22 @@ layout: default
                         </a>
                     </span>
                 </div>
+                {% else %} 
+                <div class="col-9 col-sm-8">
+                    <span class="float-right">
+                        {%- if build.public -%}
+                        <a href='https://{{site.data.config.webBaseURL}}/assets/b/{{build.folderPath}}/{{build.fileName}}'>
+                            <button type="button" class="btn btn-outline-primary">
+                                <i class="fas fa-cloud-download-alt"></i> Install </button>
+                        </a>
+                        {%- endif -%}
+                        <a href='http://{{site.data.config.localBaseURL}}/assets/b/{{build.folderPath}}/{{build.fileName}}'>
+                            <button type="button" class="btn btn-outline-warning">
+                                <i class="fas fa-download"></i> Install </button>
+                        </a>
+                    </span>
+                </div>
+                {%- endif -%}
             </div>
             <div class="build-branch"> RELEASE NOTES
                 <br>
