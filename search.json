@@ -1,7 +1,7 @@
 ---
 ---
 [
-  {% for build in site.data.builds %}
+  {% for build in site.builds %}
     {
       "version": "{{ build.version }}",
       "buildNumber" : "{{ build.buildNumber }}",

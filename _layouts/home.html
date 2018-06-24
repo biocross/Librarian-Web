@@ -41,7 +41,7 @@ layout: default
     
     <br/>
 
-    {%- if site.data.builds.size > 0 -%} {% assign sortedBuilds = site.data.builds | sort: 'date' | reverse %}
+    {%- if site.builds.size > 0 -%} {% assign sortedBuilds = site.builds | sort: 'date' | reverse %}
     <div class="row">
         <div class="col-4">
             <h2 class="post-list-heading">{{ page.list_title | default: "Builds" }}</h2>

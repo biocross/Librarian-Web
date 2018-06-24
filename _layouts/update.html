@@ -7,7 +7,7 @@ layout: default
     <h1 class="page-heading">{{ page.title }}</h1>
     {%- endif -%}
     <div>
-        {%- if site.data.config.update.available -%}
+    {%- if site.data.config.update.available -%}
         <br>
         <div class="alert alert-primary" role="alert">
             {{ site.data.config.update.notes }}
