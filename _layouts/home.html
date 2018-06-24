@@ -100,15 +100,21 @@ layout: default
                 </div>
                 {%- endif -%}
             </div>
+            {%- if build.notes != "" -%}
             <div class="build-branch"> RELEASE NOTES
                 <br>
                 <p style="margin-top: 0.5rem;">
                     {{ build.notes }}
                 </p>
             </div>
+            {%- else -%} 
+            <div class="build-branch"> NO RELEASE NOTES
+                <br/><p style="margin-top: 0.5rem;"></p>
+            </div>
+            {%- endif -%}
             <div class="row">
                 <div class="col-4 build-branch">
-                    <i class="fas fa-code-branch"></i> {{build.branch}}
+                    {%- if build.branch != "" -%}<i class="fas fa-code-branch"></i> {{build.branch}} {%- endif -%}
                 </div>
                 <div class="col-8 align-self-end">
                     <span class="build-date float-right">
