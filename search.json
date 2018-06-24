@@ -4,13 +4,15 @@
   {% for build in site.builds %}
     {
       "version": "{{ build.version }}",
-      "buildNumber" : "{{ build.buildNumber }}",
-      "notes"     : "{{ build.notes }}",
-      "branch"     : "{{ build.branch }}",
+      "buildNumber": "{{ build.buildNumber }}",
+      "bundle": "{{ build.bundle }}",
+      "notes": "{{ build.notes }}",
+      "branch": "{{ build.branch }}",
       "folderPath": "{{build.folderPath}}",
-      "platform"      : "{{ build.platform }}",
+      "platform": "{{ build.platform }}",
       "public": {{ build.public }},
-      "date": "{{ build.date }}"
+      "date": "{{ build.date }}",
+      "prettyDate": "{{ build.date | date: "%I:%M %p on %d %b %Y" }}"
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]
