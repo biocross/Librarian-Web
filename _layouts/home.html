@@ -62,7 +62,7 @@ layout: default
             <div class="row">
                 <div class="col-3 col-sm-4">
                     <span>
-                        <h2 class="build-version align-baseline"> {{ build.version }} </h2>
+                        <a href="{{site.url}}/builds/{{ build.folderPath }}"><h2 class="build-version align-baseline"> {{ build.version }} </h2></a>
                         <span class="align-text-bottom" style="font-size: 85%;">
                             ({{ build.buildNumber }}) &nbsp; {%- if build.platform == "ios" -%} <i class="fab fa-apple"></i> </i> {% else %} <i class="fab fa-android"></i> {%- endif -%}
                         </span>
@@ -180,10 +180,8 @@ layout: default
                 json: data,
                 searchResultTemplate: template
             });
-            console.log(search);
         });
         $('#search-input').on('keyup', function (e) {
-            console.log(e);
             const text = $(this).val();
             if (text == '') {
                 setTimeout(function () {
