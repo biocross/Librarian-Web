@@ -64,7 +64,7 @@ layout: default
                     <span>
                         <h2 class="build-version align-baseline"> {{ build.version }} </h2>
                         <span class="align-text-bottom" style="font-size: 85%;">
-                            ({{ build.buildNumber }})
+                            ({{ build.buildNumber }}) &nbsp; {%- if build.platform == "ios" -%} <i class="fab fa-apple"></i> </i> {% else %} <i class="fab fa-android"></i> {%- endif -%}
                         </span>
                     </span>
                 </div>

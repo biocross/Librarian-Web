@@ -28,5 +28,15 @@
       "platform": "ios",
       "public": true,
       "date": "2018-06-07T14:47:05.565Z"
+    },
+    {
+      "version": "6.4",
+      "buildNumber": "910500",
+      "bundle": "com.flipkart.android",
+      "folderPath": 1529784823719,
+      "fileName": "Flipkart.apk",
+      "date": "2018-06-23T20:13:43.719Z",
+      "public": true,
+      "platform": "android"
     }
 ]
