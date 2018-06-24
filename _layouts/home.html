@@ -12,26 +12,30 @@ layout: default
         <h2>Hello!</h2>
         <br>
         <h6>Welcome to Librarian's web interface! Your builds will be listed here to be downloaded. </h6>
-        <p> It's currently showing sample data, but you can start submitting your real builds to librarian using the command:
+        <p> You can start submitting your builds to librarian using the command:
             <p>
-                <code> librarian submit &lt;pathToIPA&gt; [branch] [release_notes]</code>
+                <code> librarian submit &lt;full path to IPA/APK file&gt; [options]</code>
             </p>
-            where:
+            where <strong>options</strong> include:
             <p>
                 <ul>
                     <li>
-                        <code>pathToIPA</code> is the path to the IPA file</li>
-                    <li>
-                        <code>branch</code> is the git branch the build is from
-                        <em>(Optional)</em>
+                        <code>-b, --branch &lt;branch&gt;</code> to specify the branch the build is from.
                     </li>
                     <li>
-                        <code>release_notes</code> are the release notes for the build
-                        <em>(Optional)</em>
+                        <code>-n, --notes &lt;notes&gt;</code> to specify the release notes for the build.
+                    </li>
+                    <li>
+                        <code>-p, --public</code> to allow the build to be downloaded via the Internet (default: local only).
                     </li>
                 </ul>
             </p>
-
+            <p>
+                Make sure the path to the build file you pass in is a full path (and not relative), and is an <em>apk</em> or <em>ipa</em> file. Also make sure that librarian has permissions to access the file. 
+            </p>
+            <p>
+                FYI: On submitting the build, Librarian makes a copy of the build in the filesystem.
+            </p>
         </p>
         <br/>
     </div>
