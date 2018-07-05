@@ -189,7 +189,7 @@ layout: default
 
         setTimeout(function(){
             let searchTerm = getUrlParameter('b');
-            if (searchTerm !== '') {
+            if (searchTerm && searchTerm !== '') {
                 $('#search-input').val(searchTerm);
                 search.search(searchTerm);
             }
