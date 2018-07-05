@@ -1,21 +1,6 @@
-<footer class="site-footer h-card">
-  <div class="wrapper">
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>Web: <a class="u-email" href="{{site.data.config.webBaseURL}}">{{ site.data.config.webBaseURL }}</a>
-          </li>
-          <li>Local: <a class="u-email" href="{{site.data.config.localBaseURL}}">{{ site.data.config.localBaseURL }}</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-col footer-col-2">
-        {%- include social.html -%}
-      </div>
-      <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
-      </div>
-    </div>
+<footer>
+  <div>
+    <p><em>{{ site.title | escape }} is a part of <a href="https://github.com/biocross/Librarian">Librarian Build Server</a></em></p>
+    <p><em>{{- site.description | escape -}}</em></p>
   </div>
 </footer>
