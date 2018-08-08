@@ -4,15 +4,23 @@ title: Quickstart Guide
 permalink: /guide/
 ---
 
-Welcome to Librarian's web interface! Your builds will be listed here to be downloaded.
-It's currently showing sample data, but you can start submitting your real builds to librarian using the command:
+### Submitting Builds
 
-~~~~
-librarian submit <pathToIPA> [branch] [release_notes]
-~~~
+Submit builds to Librarian using:
 
-where,
+```console
+$ librarian submit <pathToFile> [options]
+```
+The `pathToFile` must be the full path to the `IPA` or `APK` file. Example: `/Users/jenkins/MyApp.ipa`, and should be accessible by Librarian.
 
-* `pathToIPA` is the path to the IPA file
-* `branch` is the git branch the build is from (**Optional**)
-* `release_notes` are the release notes for the build (**Optional**)
+You can pass in the following additional options along with the path of the build file.
+
+Option | Short | Example | Description
+--- | --- | --- | ---
+`--branch <branch>` | `-b` | `--branch master` | git branch the build is from
+`--notes <notes>` | `-n` | `--notes "Release Candidate Build"` | release notes for the build
+`--public` | `-p` | Just add the flag `--public` | allow the build to be downloaded over the HTTPs tunnel (by default, builds can only be downloaded on the local network)
+
+Librarian will autodetect the type of build `iOS / Android` using the file extension, will create a copy of the build in it's assets, and make it available for download on it's web interface.
+
+> The Librarian server should be running while submitting a build.
